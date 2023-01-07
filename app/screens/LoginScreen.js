@@ -77,7 +77,6 @@ function LoginScreen(props) {
                                     height={RFPercentage(6.8)}
                                     backgroundColor={Colors.white}
                                     borderWidth={RFPercentage(0.3)}
-                                    // borderColor={Colors.black}
                                     secure={item.secure}
                                     borderRadius={RFPercentage(1.4)}
                                     color={Colors.black}
