@@ -75,13 +75,13 @@ function SignupScreen(props) {
                     {/* Input field */}
                     <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', alignSelf: 'center' }}>
                         {inputField.map((item, i) => (
-                            <View key={i} style={{ marginTop: i == 0 ? RFPercentage(2) : RFPercentage(1), alignSelf: 'center' }} >
+                            <View key={i} style={{ marginTop: i == 0 ? RFPercentage(8) : RFPercentage(1), alignSelf: 'center' }} >
                                 <InputField
                                     placeholder={item.placeholder}
                                     placeholderColor={Colors.darkGrey}
                                     placeholderAtCenter={false}
                                     height={RFPercentage(6.8)}
-                                    backgroundColor={Colors.white}
+                                    backgroundColor={Colors.grey}
                                     borderWidth={RFPercentage(0.3)}
                                     // borderColor={Colors.black}
                                     secure={item.secure}

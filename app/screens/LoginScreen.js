@@ -67,7 +67,7 @@ function LoginScreen(props) {
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
 
                     {/* Input field */}
-                    <View style={{ marginTop: RFPercentage(5.2), justifyContent: 'center', alignItems: 'center', width: '100%', alignSelf: 'center' }}>
+                    <View style={{ marginTop: RFPercentage(15), justifyContent: 'center', alignItems: 'center', width: '100%', alignSelf: 'center' }}>
                         {inputField.map((item, i) => (
                             <View key={i} style={{ marginTop: i == 0 ? RFPercentage(2) : RFPercentage(2), alignSelf: 'center' }} >
                                 <InputField
@@ -75,10 +75,10 @@ function LoginScreen(props) {
                                     placeholderColor={Colors.darkGrey}
                                     placeholderAtCenter={false}
                                     height={RFPercentage(6.8)}
-                                    backgroundColor={Colors.white}
+                                    backgroundColor={Colors.grey}
                                     borderWidth={RFPercentage(0.3)}
                                     secure={item.secure}
-                                    borderRadius={RFPercentage(1.4)}
+                                    borderRadius={RFPercentage(2)}
                                     color={Colors.black}
                                     fontSize={RFPercentage(2)}
                                     handleFeild={(text) => handleChange(text, i)}

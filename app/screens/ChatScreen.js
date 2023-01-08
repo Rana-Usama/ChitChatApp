@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Image, KeyboardAvoidingView, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Image, KeyboardAvoidingView, StyleSheet, TextInput } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
 //components
@@ -10,6 +10,44 @@ import InputField from './../components/common/InputField';
 import Colors from '../config/Colors';
 
 function ChatScreen(props) {
+
+    // Input fields
+    const [inputField, SetInputField] = useState([
+        {
+            placeholder: "Aa...",
+            value: "",
+        }
+
+    ]);
+
+    const handleChange = (text, i) => {
+        let tempfeilds = [...inputField];
+        tempfeilds[i].value = text;
+        SetInputField(tempfeilds);
+
+    };
+
+    const handleSignin = () => {
+        showIndicator(true);
+        let tempfeilds = [...inputField];
+
+        if (tempfeilds[0].value === "") {
+            alert("Please fill all the feilds");
+            showIndicator(false);
+            return true;
+        }
+
+        props.navigation.navigate("HomeDrawer")
+
+        try {
+            // API INTEGRATION WILL COME HERE
+        } catch (error) {
+            alert("Error");
+        }
+
+        showIndicator(false);
+    };
+
     return (
         <Screen style={styles.screen}>
             <View style={{ marginTop: RFPercentage(4), width: '90%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
@@ -36,7 +74,34 @@ function ChatScreen(props) {
                 </View>
             </View>
 
-
+            <KeyboardAvoidingView
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={{ flex: 1, width: '100%' }}
+            >
+                <ScrollView>
+                    <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', marginTop: RFPercentage(80) }}>
+                        {inputField.map((item, i) => (
+                            <View key={i} style={{ marginTop: RFPercentage(2) }} >
+                                <InputField
+                                    placeholder={item.placeholder}
+                                    placeholderColor={Colors.grey}
+                                    height={RFPercentage(6.2)}
+                                    backgroundColor={Colors.white}
+                                    borderWidth={RFPercentage(0)}
+                                    icons={true}
+                                    borderColor={Colors.blue}
+                                    borderRadius={RFPercentage(20)}
+                                    color={Colors.black}
+                                    fontSize={RFPercentage(2)}
+                                    handleFeild={(text) => handleChange(text, i)}
+                                    value={item.value}
+                                    width={"87%"}
+                                />
+                            </View>
+                        ))}
+                    </View>
+                </ScrollView>
+            </KeyboardAvoidingView>
         </Screen>
     );
 }

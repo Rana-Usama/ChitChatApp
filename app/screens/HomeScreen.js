@@ -10,6 +10,7 @@ import InputField from './../components/common/InputField';
 
 //config
 import Colors from '../config/Colors';
+import SettingsScreen from './SettingsScreen';
 
 function HomeScreen(props) {
 
@@ -113,7 +114,7 @@ function HomeScreen(props) {
                 }
 
                 {/* setting */}
-                <TouchableOpacity activeOpacity={0.8} style={{ position: 'absolute', right: 0 }} >
+                <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.navigate("SettingsScreen")} style={{ position: 'absolute', right: 0 }} >
                     <Image source={require('../../assets/images/setting.png')} style={{ width: RFPercentage(4), height: RFPercentage(4) }} />
                 </TouchableOpacity>
             </View>
@@ -198,7 +199,7 @@ function HomeScreen(props) {
                     </View>
 
                     {/* Button */}
-                    <TouchableOpacity activeOpacity={0.8} style={{ marginTop: RFPercentage(10), width: '75%', height: RFPercentage(5.6), backgroundColor: Colors.white, justifyContent: 'center', alignItems: 'center', flexDirection: 'row', borderRadius: RFPercentage(9) }} >
+                    <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.navigate("ChatScreen")} style={{ marginTop: RFPercentage(10), width: '75%', height: RFPercentage(5.6), backgroundColor: Colors.white, justifyContent: 'center', alignItems: 'center', flexDirection: 'row', borderRadius: RFPercentage(9) }} >
                         <Image style={{ width: RFPercentage(5), height: RFPercentage(5), position: 'absolute', left: 5 }} source={require('../../assets/images/current.png')} />
                         <Text style={{ color: Colors.black, fontSize: RFPercentage(2.2), fontWeight: 'bold' }} >
                             Let's Talk!

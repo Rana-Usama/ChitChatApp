@@ -47,8 +47,7 @@ function InputField({
 
             {icons ? (
                 <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', position: "absolute", right: RFPercentage(1) }}>
-
-                    {/* <Image style={{ alignItems: 'center', justifyContent: 'center', position: "absolute", right: RFPercentage(1), width: RFPercentage(16), height: RFPercentage(2.3) }} source={require('../../../assets/images/cicons.png')} /> */}
+                    <Image style={{ alignItems: 'center', justifyContent: 'center', position: "absolute", right: RFPercentage(1), width: RFPercentage(3.8), height: RFPercentage(3.8) }} source={require('../../../assets/images/send.png')} />
                 </TouchableOpacity>
             ) : null}
 
@@ -69,7 +68,7 @@ function InputField({
                 value={value}
                 autoFocus={autoFocus}
                 keyboardType={keyboardType}
-                secureTextEntry={secure && !eyeIcon}
+                // secureTextEntry={secure && !eyeIcon}
                 // textAlign={"right"}
                 style={{ flexWrap: 'wrap', top: placeholderAtStart ? RFPercentage(-3) : 0, color: color, alignSelf: "center", fontFamily: fontFamily, fontSize: fontSize, width: '90%' }}
                 {...otherProps}
