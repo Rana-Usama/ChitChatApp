@@ -8,10 +8,11 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 //screens
 import LoginScreen from './app/screens/LoginScreen';
 import SignupScreen from './app/screens/SignupScreen';
+import HomeScreen from './app/screens/HomeScreen';
+import ChatScreen from './app/screens/ChatScreen';
 
 //config
 import Colors from './app/config/Colors';
-import HomeScreen from './app/screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
@@ -30,10 +31,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="HomeScreen">
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="ChatScreen">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="ChatScreen" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -6,10 +6,10 @@ import { Entypo } from '@expo/vector-icons';
 
 //components
 import Screen from './../components/Screen';
+import InputField from './../components/common/InputField';
 
 //config
 import Colors from '../config/Colors';
-import InputField from './../components/common/InputField';
 
 function HomeScreen(props) {
 
