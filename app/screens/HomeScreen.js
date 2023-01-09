@@ -80,9 +80,9 @@ function HomeScreen(props) {
     ]);
 
     const handleChange2 = (text, i) => {
-        let tempfeilds = [...inputField];
+        let tempfeilds = [...inputField2];
         tempfeilds[i].value = text;
-        SetInputField(tempfeilds);
+        SetInputField2(tempfeilds);
 
     };
 
@@ -174,7 +174,7 @@ function HomeScreen(props) {
                                     borderRadius={RFPercentage(1.1)}
                                     color={Colors.black}
                                     fontSize={RFPercentage(2)}
-                                    handleFeild={(text) => handleChange(text, i)}
+                                    handleFeild={(text) => handleChange2(text, i)}
                                     value={item.value}
                                     width={"85%"}
                                 />
