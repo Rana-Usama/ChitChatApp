@@ -71,25 +71,19 @@ function HomeScreen(props) {
 
     };
 
-    const handleSignin = () => {
-        showIndicator(true);
+    const [inputField2, SetInputField2] = useState([
+        {
+            placeholder: "Email & Phone Number",
+            value: "",
+        }
+
+    ]);
+
+    const handleChange2 = (text, i) => {
         let tempfeilds = [...inputField];
+        tempfeilds[i].value = text;
+        SetInputField(tempfeilds);
 
-        if (tempfeilds[0].value === "") {
-            alert("Please fill all the feilds");
-            showIndicator(false);
-            return true;
-        }
-
-        props.navigation.navigate("HomeDrawer")
-
-        try {
-            // API INTEGRATION WILL COME HERE
-        } catch (error) {
-            alert("Error");
-        }
-
-        showIndicator(false);
     };
 
     return (
@@ -147,7 +141,6 @@ function HomeScreen(props) {
                         {inputField.map((item, i) => (
                             <View key={i} style={{ marginTop: RFPercentage(2) }} >
                                 <InputField
-                                    placeholder={item.placeholder}
                                     placeholderColor={Colors.white}
                                     height={RFPercentage(6.2)}
                                     backgroundColor={Colors.white}
@@ -165,37 +158,28 @@ function HomeScreen(props) {
                     </View>
 
                     <Text style={{ fontSize: RFPercentage(2.9), color: '#ffff', marginTop: RFPercentage(3), fontWeight: 'bold' }} >
-                        How old are you ?
+                        How old are you?
                     </Text>
 
-                    {/* Age */}
-                    <View style={{ marginTop: RFPercentage(2), width: RFPercentage(14), height: RFPercentage(5.6), backgroundColor: Colors.white, justifyContent: 'center', alignItems: 'center', borderRadius: RFPercentage(3) }} >
-                        {/* Minus */}
-                        <TouchableOpacity style={{ position: 'absolute', left: RFPercentage(0.7) }} >
-                            <Entypo name="minus" style={{ fontSize: RFPercentage(2.6) }} color="black" />
-                        </TouchableOpacity>
-                        <Text style={{ color: Colors.black, fontSize: RFPercentage(2.3), fontWeight: '600' }} >
-                            18
-                        </Text>
-                        {/* Plus */}
-                        <TouchableOpacity style={{ position: 'absolute', right: RFPercentage(0.7) }} >
-                            <Entypo name="plus" style={{ fontSize: RFPercentage(2.6) }} color="black" />
-                        </TouchableOpacity>
-                    </View>
-
-                    <Text style={{ fontSize: RFPercentage(2.9), color: Colors.white, marginTop: RFPercentage(6), fontWeight: 'bold' }} >
-                        Pick An Avatar!
-                    </Text>
-
-                    {/* Avatar */}
-                    <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} >
-                            {avatarsData.map((item, i) => (
-                                <TouchableOpacity activeOpacity={0.8} key={i} onPress={() => SetSelect(true)} >
-                                    <Image style={{ width: RFPercentage(10), height: RFPercentage(9.5), marginTop: RFPercentage(2.5), marginLeft: i != 0 ? RFPercentage(3) : 0 }} source={item.avatarSource} />
-                                </TouchableOpacity>
-                            ))}
-                        </ScrollView>
+                    {/* Input Field */}
+                    <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                        {inputField2.map((item, i) => (
+                            <View key={i} style={{ marginTop: RFPercentage(2) }} >
+                                <InputField
+                                    placeholderColor={Colors.white}
+                                    height={RFPercentage(6.2)}
+                                    backgroundColor={Colors.white}
+                                    borderWidth={RFPercentage(0)}
+                                    borderColor={Colors.blue}
+                                    borderRadius={RFPercentage(1.1)}
+                                    color={Colors.black}
+                                    fontSize={RFPercentage(2)}
+                                    handleFeild={(text) => handleChange(text, i)}
+                                    value={item.value}
+                                    width={"85%"}
+                                />
+                            </View>
+                        ))}
                     </View>
 
                     {/* Button */}
